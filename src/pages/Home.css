@@ -1,0 +1,31 @@
+.message-no-tweets {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.profile-and-home {
+  display: flex;
+}
+
+.btn-tweet-md {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .profile-and-home {
+    display: none;
+  }
+
+  .btn-tweet {
+    display: none;
+  }
+
+  .btn-tweet-md {
+    display: flex;
+  }
+
+  .logo-twitter {
+    justify-content: center;
+  }
+}

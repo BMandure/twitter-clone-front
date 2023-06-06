@@ -26,7 +26,7 @@ function Register() {
                   <form
                     action="/register"
                     method="POST"
-                    enctype="multipart/form-data"
+                    encType="multipart/form-data"
                   >
                     <input
                       className="form-control my-2 py-2"
