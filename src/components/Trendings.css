@@ -1,0 +1,48 @@
+:root {
+  --light-blue-1: #23a4f2;
+  --light-blue-2: #50b7f5;
+  --light-blue-3: #80cbf7;
+
+  --grey: #eff8fe;
+  --black: #000000;
+}
+
+#trending-happening {
+  background-color: var(--grey);
+  padding: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 30px;
+}
+
+#trending-whoFollow {
+  background-color: var(--grey);
+  padding: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 30px;
+}
+
+.trending-titles {
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.trending-list {
+  padding: 0px;
+}
+
+.trending-itemList {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.trending-greyText {
+  color: grey;
+  margin: 0px;
+}
+
+.trending-bolder {
+  font-weight: bold;
+  margin: 0px;
+}
