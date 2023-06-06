@@ -6,8 +6,8 @@ function Tweet() {
         style={{ height: "50px", width: "50px" }}
       >
         <img
-          src='<%= avatar.includes("http") ? avatar : "/img/" + avatar %>'
-          alt=""
+          src={"#"}
+          alt="fotoperfil"
           className="img-fluid"
           style={{ width: "65px", height: "65px", objectFit: "cover" }}
         />
@@ -22,10 +22,10 @@ function Tweet() {
         </p>
         <div className="d-flex w-100 justify-content-between">
           <span>
-            <img src="like-active.svg" alt="" />
+            <img src={"like-active.svg"} alt="" />
           </span>
           <span>
-            <img src="delete.svg" alt="" />
+            <img src={"delete.svg"} alt="" />
           </span>
         </div>
       </div>

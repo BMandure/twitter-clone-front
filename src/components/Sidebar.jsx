@@ -1,3 +1,10 @@
+//ICONOS
+import twitterLogo from "../assets/twitter-logo.svg";
+import homeIcon from "../assets/home.svg";
+import profileIcon from "../assets/profile.svg";
+import writeIcon from "../assets/write.svg";
+import logoutIcon from "../assets/logout.svg";
+
 function Sidebar() {
   return (
     <>
@@ -8,15 +15,15 @@ function Sidebar() {
         >
           <div className="my-3">
             <a className="d-flex logo-twitter">
-              <img src="twitter-logo.svg" alt="" />
+              <img src={twitterLogo} alt="" />
             </a>
             <div className="d-flex justify-content-center my-3">
               <div className="d-flex flex-column justify-content-between align-items-center">
                 <a className="my-2">
-                  <img src="home.svg" alt="" />
+                  <img src={homeIcon} alt="" />
                 </a>
                 <a className="my-2">
-                  <img src="profile.svg" alt="" />
+                  <img src={profileIcon} alt="" />
                 </a>
               </div>
               <div className="flex-column justify-content-between ms-3 my-auto profile-and-home">
@@ -33,7 +40,7 @@ function Sidebar() {
                 Tweet
               </a>
               <a className="btn btn-lb rounded-circle p-2 btn-tweet-md">
-                <img src="write.svg" alt="" />
+                <img src={writeIcon} alt="" />
               </a>
             </div>
           </div>
@@ -42,7 +49,7 @@ function Sidebar() {
               Logout
             </button>
             <button className="btn btn-danger rounded-circle p-2 btn-tweet-md">
-              <img src="logout.svg" alt="" />
+              <img src={logoutIcon} alt="" />
             </button>
           </form>
         </div>

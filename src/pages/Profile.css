@@ -1,0 +1,58 @@
+:root {
+  --light-blue-1: #23a4f2;
+  --light-blue-2: #50b7f5;
+  --light-blue-3: #80cbf7;
+
+  --grey: #eff8fe;
+  --black: #000000;
+}
+
+.profile-object-fit {
+  object-fit: cover;
+  object-position: center;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.profile-followers {
+  margin: 0;
+}
+
+.profile-grey-user {
+  color: grey;
+}
+
+.profile-image {
+  position: relative;
+  object-fit: cover;
+  width: 175px;
+  height: 175px;
+  border: 5px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 50%;
+  margin-top: -105px;
+  transition: filter 0.3s;
+}
+
+.profile-image:hover {
+  filter: brightness(70%);
+}
+
+#profile-content {
+  padding-left: 30px;
+}
+
+#tweetsTitle {
+  font-size: 1rem;
+  margin-left: 20px;
+}
+
+#follows-box {
+  position: relative;
+}
+#follows-counter {
+  position: absolute;
+  bottom: 0;
+}
