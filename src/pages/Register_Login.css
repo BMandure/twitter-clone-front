@@ -1,0 +1,78 @@
+.container-register,
+.container-login {
+  background-color: #084c74;
+  min-height: 100vh;
+}
+
+.log-in,
+.sign-up {
+  display: block;
+  width: 100%;
+}
+.sign-link {
+  text-decoration: none;
+  color: var(--light-blue-1);
+}
+
+.sign-text {
+  display: block;
+  margin: 1.5rem 0 1.5rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.login-card,
+.register-card {
+  width: 70%;
+  height: 80%;
+  border: none;
+  border-radius: 15px;
+}
+.login-container,
+.register-container {
+  height: 100%;
+}
+.login-card-container,
+.register-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.welcome-container {
+  position: relative;
+  background-color: var(--light-blue-1);
+  border-radius: 15px 0 0 15px;
+  height: 100%;
+  padding: 4rem;
+}
+.welcome-text {
+  position: absolute;
+  bottom: 4rem;
+  color: white;
+  width: 50%;
+  margin: auto;
+}
+
+.logo-welcome {
+  height: 50px;
+  width: 50px;
+}
+
+.login-form-container,
+.register-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  height: 100%;
+}
+
+.right-container {
+  height: 100%;
+  padding: 5rem 1rem 5rem 1rem;
+}
+
+.card-text {
+  margin: 0 !important;
+}
