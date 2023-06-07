@@ -1,4 +1,4 @@
-function FollowsHeader() {
+function FollowsHeader({ inFollowing }) {
   return (
     <section className="container border-bottom">
       <div className="row pt-5">
@@ -18,13 +18,21 @@ function FollowsHeader() {
           <div className="d-flex justify-content-around mt-4">
             <a
               href={"#"}
-              className="fs-5  fw-semibold button-not-underlined pb-2"
+              className={`fs-5  fw-semibold  pb-2 ${
+                inFollowing
+                  ? "button-not-underlined"
+                  : "button-border-underlined"
+              }`}
             >
               Followers
             </a>
             <a
               href={"#"}
-              className="fs-5  fw-semibold button-border-underlined pb-2"
+              className={`fs-5  fw-semibold  pb-2 ${
+                inFollowing
+                  ? "button-border-underlined"
+                  : "button-not-underlined"
+              }`}
             >
               Following
             </a>

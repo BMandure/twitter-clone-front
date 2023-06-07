@@ -7,7 +7,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Error404 from "./pages/Error404";
-import Followings from "./pages/Followings";
+import Following from "./pages/Following";
 import Followers from "./pages/Followers";
 import Page from "./components/Page";
 
@@ -23,7 +23,7 @@ function App() {
       <Route path="/" element={<Page />}>
         <Route path="home" element={<Home />} />
         <Route path="profile/:username" element={<Profile />} />
-        <Route path="profile/:username/followings" element={<Followings />} />
+        <Route path="profile/:username/following" element={<Following />} />
         <Route path="profile/:username/followers" element={<Followers />} />
       </Route>
       <Route path="*" element={<Error404 />} />

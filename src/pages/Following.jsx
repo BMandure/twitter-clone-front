@@ -2,13 +2,14 @@
 
 import FollowsHeader from "../components/FollowsHeader";
 import FollowsCard from "../components/FollowsCard";
+import avatar from "../assets/generic-avatar.svg";
 import "./followers.css";
 
-function Followers() {
+function Followings() {
   const repetir = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   return (
     <>
-      <FollowsHeader inFollowing={false} />
+      <FollowsHeader inFollowing={true} />
       <section className="container">
         {repetir.map(() => (
           <FollowsCard />
@@ -18,4 +19,4 @@ function Followers() {
   );
 }
 
-export default Followers;
+export default Followings;

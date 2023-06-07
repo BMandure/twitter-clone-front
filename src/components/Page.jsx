@@ -19,7 +19,11 @@ function Middle() {
           <Col sm={2}>
             <Sidebar />
           </Col>
-          <Col sm={6} className="border-end border-start p-0">
+          <Col
+            sm={6}
+            className="border-end border-start p-0"
+            style={{ minHeight: "100vh" }}
+          >
             <Outlet />
           </Col>
           <Col sm={4}>
