@@ -2,7 +2,7 @@
 
 import FollowsHeader from "../components/FollowsHeader";
 import FollowsCard from "../components/FollowsCard";
-import avatar from "../assets/generic-avatar.svg";
+
 import "./followers.css";
 
 function Followings() {
