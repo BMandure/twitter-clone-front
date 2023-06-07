@@ -11,6 +11,8 @@ import Error404 from "./pages/Error404";
 import Following from "./pages/Following";
 import Followers from "./pages/Followers";
 import Page from "./components/Page";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { useSelector } from "react-redux";
 
 //////////////
 
@@ -21,16 +23,27 @@ function App() {
     window.scrollTo(0, 0);
   }, []);
 
+  const token = useSelector((state) => state.user.token);
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/" element={<Page />}>
+
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute token={token} redirectPath="/login">
+            <Page />
+          </ProtectedRoute>
+        }
+      >
         <Route path="home" element={<Home />} />
         <Route path="profile/:username" element={<Profile />} />
         <Route path="profile/:username/following" element={<Following />} />
         <Route path="profile/:username/followers" element={<Followers />} />
       </Route>
+
       <Route path="*" element={<Error404 />} />
     </Routes>
   );

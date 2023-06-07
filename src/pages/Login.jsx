@@ -1,6 +1,33 @@
+import { useState } from "react";
 import "./Register_Login.css";
+import { useDispatch } from "react-redux";
+import logoWhite from "../assets/twitter-logo-white.svg";
+import axios from "axios";
+import { setToken } from "../redux/userSlice";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const dispatch = useDispatch();
+
+  const [usernameEmail, setUsernameEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const response = await axios({
+      method: "POST",
+      url: "http://localhost:3000/login",
+      data: {
+        usernameEmail,
+        password,
+      },
+    });
+    console.log(response.data);
+    dispatch(setToken({ token: response.data }));
+    navigate("/home");
+  }
+
   return (
     <section className="container-fluid container-login">
       <div className="col-12 login-card-container">
@@ -8,9 +35,9 @@ function Login() {
           <div className="row g-0 login-container">
             <div className="d-none d-md-inline col-md-5 col-lg-7 welcome-container">
               <img
-                src="twitter-logo-white.svg"
+                src={logoWhite}
                 className="img-fluid rounded-start logo-welcome"
-                alt="imagen"
+                alt="logo"
               />
               <h5 className="welcome-text card-text">
                 Hi! Welcome to Twitter Clone 👋
@@ -20,28 +47,21 @@ function Login() {
               <div className="px-sm-5 card-body login-form-container">
                 <h2 className="card-title p-1">Sign In</h2>
                 <p className="card-text p-1">Ready to start using Twitter?</p>
-                <form //onSubmit={(event)=>{
-                // event.preventDefault();
-                // axios({
-                //   url,
-                //   method,
-                //   data:{
-                //     username_or_email: statenombre
-                //     password:statepassword
-                //   }
-                //})
-                //}}
-                >
+                <form onSubmit={handleSubmit}>
                   <input
                     className="form-control my-2 py-2"
                     type="text"
-                    name="username_email"
+                    name="usernameEmail"
+                    value={usernameEmail}
+                    onChange={(event) => setUsernameEmail(event.target.value)}
                     placeholder="Username or email"
                   />
                   <input
                     className="form-control my-2 py-2"
                     type="password"
                     name="password"
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
                     placeholder="Password"
                   />
                   {/* <%if (messages.error){%>
