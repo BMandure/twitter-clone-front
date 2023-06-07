@@ -20,7 +20,18 @@ function Login() {
               <div className="px-sm-5 card-body login-form-container">
                 <h2 className="card-title p-1">Sign In</h2>
                 <p className="card-text p-1">Ready to start using Twitter?</p>
-                <form action="/login" method="POST">
+                <form //onSubmit={(event)=>{
+                // event.preventDefault();
+                // axios({
+                //   url,
+                //   method,
+                //   data:{
+                //     username_or_email: statenombre
+                //     password:statepassword
+                //   }
+                //})
+                //}}
+                >
                   <input
                     className="form-control my-2 py-2"
                     type="text"
