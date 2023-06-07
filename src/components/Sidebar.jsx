@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 //ICONOS
 import twitterLogo from "../assets/twitter-logo.svg";
 import homeIcon from "../assets/home.svg";
@@ -14,34 +16,46 @@ function Sidebar() {
           style={{ height: "100vh" }}
         >
           <div className="my-3">
-            <a className="d-flex logo-twitter">
+            <Link to="/home" className="d-flex logo-twitter">
               <img src={twitterLogo} alt="" />
-            </a>
+            </Link>
             <div className="d-flex justify-content-center my-3">
               <div className="d-flex flex-column justify-content-between align-items-center">
-                <a className="my-2">
+                <Link to="/home" className="my-2">
                   <img src={homeIcon} alt="" />
-                </a>
-                <a className="my-2">
+                </Link>
+                <Link to="/profile/Juancito" className="my-2">
                   <img src={profileIcon} alt="" />
-                </a>
+                </Link>
               </div>
               <div className="flex-column justify-content-between ms-3 my-auto profile-and-home">
-                <a className="text-decoration-none text-black fw-semibold fs-6 my-2">
+                <Link
+                  to="/home"
+                  className="text-decoration-none text-black fw-semibold fs-6 my-2"
+                >
                   Home
-                </a>
-                <a className="text-decoration-none text-black fw-semibold fs-6 my-2">
+                </Link>
+                <Link
+                  to="/profile/Juancito"
+                  className="text-decoration-none text-black fw-semibold fs-6 my-2"
+                >
                   Profile
-                </a>
+                </Link>
               </div>
             </div>
             <div className="gap-2 my-4">
-              <a className="btn btn-lb rounded-pill py-2 w-100 btn-tweet">
+              <Link
+                to="/home"
+                className="btn btn-lb rounded-pill py-2 w-100 btn-tweet"
+              >
                 Tweet
-              </a>
-              <a className="btn btn-lb rounded-circle p-2 btn-tweet-md">
+              </Link>
+              <Link
+                to="/home"
+                className="btn btn-lb rounded-circle p-2 btn-tweet-md"
+              >
                 <img src={writeIcon} alt="" />
-              </a>
+              </Link>
             </div>
           </div>
           <form className="d-grid gap-2 my-4" action="/logOut" method="POST">

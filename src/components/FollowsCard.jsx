@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import avatar from "../assets/generic-avatar.svg";
 
 function FollowsCard() {
@@ -8,9 +9,12 @@ function FollowsCard() {
       </div>
       <div className="col-10 d-flex justify-content-between  align-items-center pt-2 pb-2">
         <div>
-          <a href="#" className="text-decoration-none text-black">
+          <Link
+            to="/profile/juancito"
+            className="text-decoration-none text-black"
+          >
             <p className="title-followers">Juan Perez </p>
-          </a>
+          </Link>
           <small className="mt-n3">@Juancito</small>
         </div>
         <button type="submit" className="btn fw-semibold button-following">

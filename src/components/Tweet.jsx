@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Tweet() {
   return (
     <div className="d-flex flex-row justify-content-between p-3 border-top">
@@ -13,8 +15,10 @@ function Tweet() {
         />
       </div>
       <div style={{ width: "85%" }}>
-        <p className="fw-bold d-inline">Carlos Santana</p>
-        <p className="text-secondary d-inline">@bandido 54 • 4hs ago</p>
+        <Link to="/profile/bandido" className="text-decoration-none text-black">
+          <p className="fw-bold d-inline">Carlos Santana</p>
+          <p className="text-secondary d-inline">@bandido 54 • 4hs ago</p>
+        </Link>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas aut
           vitae odio atque veritatis aliquid nesciunt architecto voluptatibus

@@ -1,14 +1,16 @@
+import { Link } from "react-router-dom";
+
 function FollowsHeader({ inFollowing }) {
   return (
     <section className="container border-bottom">
       <div className="row pt-5">
         <div className="col-1">
-          <a
-            href={"#"}
+          <Link
+            to="/profile/bandido"
             className="fs-3 text-decoration-none text-black d-block"
           >
             <i class="bi bi-arrow-left"></i>
-          </a>
+          </Link>
         </div>
         <div className="col-11">
           <div>
@@ -16,8 +18,8 @@ function FollowsHeader({ inFollowing }) {
             <small className="mt-n2">@alduu</small>
           </div>
           <div className="d-flex justify-content-around mt-4">
-            <a
-              href={"#"}
+            <Link
+              to="/profile/bandido/followers"
               className={`fs-5  fw-semibold  pb-2 ${
                 inFollowing
                   ? "button-not-underlined"
@@ -25,9 +27,9 @@ function FollowsHeader({ inFollowing }) {
               }`}
             >
               Followers
-            </a>
-            <a
-              href={"#"}
+            </Link>
+            <Link
+              to="/profile/bandido/following"
               className={`fs-5  fw-semibold  pb-2 ${
                 inFollowing
                   ? "button-border-underlined"
@@ -35,7 +37,7 @@ function FollowsHeader({ inFollowing }) {
               }`}
             >
               Following
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 
 //Componentes//
 
@@ -16,6 +17,10 @@ import Page from "./components/Page";
 import "./App.css";
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Routes>
       <Route path="/login" element={<Login />} />

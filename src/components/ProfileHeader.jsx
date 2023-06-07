@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function ProfileHeader() {
   return (
     <>
@@ -34,12 +36,18 @@ function ProfileHeader() {
             Follow
           </button>
           <p className="profile-followers mx-3" id="follows-counter">
-            <a href={"#"} style={{ color: "black", textDecoration: "none" }}>
+            <Link
+              to="/profile/bandido/following"
+              style={{ color: "black", textDecoration: "none" }}
+            >
               <strong>100000</strong> Following
-            </a>
-            <a href={"#"} style={{ color: "black", textDecoration: "none" }}>
+            </Link>
+            <Link
+              to="/profile/bandido/followers"
+              style={{ color: "black", textDecoration: "none" }}
+            >
               <strong>1</strong> Followers
-            </a>
+            </Link>
           </p>
         </div>
       </div>
