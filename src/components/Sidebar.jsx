@@ -7,7 +7,11 @@ import profileIcon from "../assets/profile.svg";
 import writeIcon from "../assets/write.svg";
 import logoutIcon from "../assets/logout.svg";
 
+import { useDispatch } from "react-redux";
+import { deleteToken } from "../redux/userSlice";
+
 function Sidebar() {
+  const dispatch = useDispatch();
   return (
     <>
       <aside className="position-fixed px-3 w-auto" style={{ height: "100vh" }}>
@@ -58,14 +62,17 @@ function Sidebar() {
               </Link>
             </div>
           </div>
-          <form className="d-grid gap-2 my-4" action="/logOut" method="POST">
-            <button className="btn btn-danger rounded-pill py-2 w-100 btn-tweet">
+          <div
+            className="d-grid gap-2 my-4"
+            onClick={() => dispatch(deleteToken())}
+          >
+            <span className="btn btn-danger rounded-pill py-2 w-100 btn-tweet">
               Logout
-            </button>
-            <button className="btn btn-danger rounded-circle p-2 btn-tweet-md">
+            </span>
+            <span className="btn btn-danger rounded-circle p-2 btn-tweet-md">
               <img src={logoutIcon} alt="" />
-            </button>
-          </form>
+            </span>
+          </div>
         </div>
       </aside>
     </>
