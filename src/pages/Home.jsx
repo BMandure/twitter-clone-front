@@ -29,7 +29,6 @@ function Home() {
     <>
       <WriteATweet />
       {tweets.map((tweet) => {
-        console.log(tweet);
         return <Tweet key={tweet._id} tweet={tweet} />;
       })}
     </>
