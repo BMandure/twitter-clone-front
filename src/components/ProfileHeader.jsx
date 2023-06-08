@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FollowButton from "./FollowButton";
 
 function ProfileHeader({ userData }) {
   console.log(userData.followers.length);
