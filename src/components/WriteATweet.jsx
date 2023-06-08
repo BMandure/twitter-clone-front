@@ -1,9 +1,34 @@
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import axios from "axios";
 
-function WriteATweet() {
+function WriteATweet({ setRender }) {
   const userData = useSelector((state) => state.user.userData);
+  const token = useSelector((state) => state.user.token);
+  const [text, setText] = useState("");
+  const [err, setErr] = useState(null);
+  async function textHandler(event) {
+    event.preventDefault();
+    if (text.length > 140) {
+      return setErr("El texto no puede exceder los 140 caracteres");
+    }
+    const response = await axios({
+      method: "POST",
+      url: "http://localhost:3000/users/tweet",
+      data: {
+        textTweet: text,
+      },
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    if (response === "text cannot exceed 140 characters") {
+      return setErr("El texto no puede exceder los 140 caracteres");
+    }
+    return setRender((state) => state + 1);
+  }
   return (
-    <form className="row my-3 mx-4" action="usuarios/crear" method="POST">
+    <form className="row my-3 mx-4" onSubmit={textHandler}>
       <h1 className="mb-3 fs-5 text-start px-0">Home</h1>
       <div className="col-1 mx-0 px-0">
         <div className="rounded-circle overflow-hidden px-0">
@@ -22,6 +47,10 @@ function WriteATweet() {
           name="textTweet"
           placeholder="What's happening?"
           rows="3"
+          value={text}
+          onChange={(event) => {
+            setText(event.target.value);
+          }}
         ></textarea>
       </div>
       <div className="d-flex w-100 my-2 justify-content-end px-0">
@@ -32,6 +61,11 @@ function WriteATweet() {
           Tweet
         </button>
       </div>
+      {err && (
+        <p className="border text-center p-1 rounded bg-danger bg-opacity-25 text-danger">
+          {err}
+        </p>
+      )}
     </form>
   );
 }
