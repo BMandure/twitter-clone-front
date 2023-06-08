@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
+import likeActive from "../assets/like-active.svg";
+import deleteIcon from "../assets/delete.svg";
 
-function Tweet() {
+function Tweet({ tweet }) {
+  function formatDate(createdAt) {
+    return format(new Date(createdAt), "MM/dd/yyyy - hh:mm aaa");
+  }
   return (
     <div className="d-flex flex-row justify-content-between p-3 border-top">
       <div
@@ -8,7 +14,7 @@ function Tweet() {
         style={{ height: "50px", width: "50px" }}
       >
         <img
-          src={"#"}
+          src={tweet.author.avatar}
           alt="fotoperfil"
           className="img-fluid"
           style={{ width: "65px", height: "65px", objectFit: "cover" }}
@@ -16,20 +22,21 @@ function Tweet() {
       </div>
       <div style={{ width: "85%" }}>
         <Link to="/profile/bandido" className="text-decoration-none text-black">
-          <p className="fw-bold d-inline">Carlos Santana</p>
-          <p className="text-secondary d-inline">@bandido 54 • 4hs ago</p>
+          <p className="fw-bold d-inline">
+            {tweet.author.firstname} {tweet.author.lastname}
+          </p>
+          <p className="text-secondary d-inline">
+            @{tweet.author.username} • {formatDate(tweet.createdAt)}
+          </p>
         </Link>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas aut
-          vitae odio atque veritatis aliquid nesciunt architecto voluptatibus
-          doloremque, harum distinctio perspiciatis sequi numquam odit enim?
-        </p>
+        <p>{tweet.text}</p>
         <div className="d-flex w-100 justify-content-between">
           <span>
-            <img src={"like-active.svg"} alt="" />
+            <img src={likeActive} alt="" />
+            {tweet.likes.length}
           </span>
           <span>
-            <img src={"delete.svg"} alt="" />
+            <img src={deleteIcon} alt="" />
           </span>
         </div>
       </div>

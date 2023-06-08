@@ -3,7 +3,7 @@ import "./Register_Login.css";
 import { useDispatch } from "react-redux";
 import logoWhite from "../assets/twitter-logo-white.svg";
 import axios from "axios";
-import { setToken } from "../redux/userSlice";
+import { setToken, setUserData } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -18,15 +18,15 @@ function Login() {
     event.preventDefault();
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/login",
+      url: "http://localhost:3000/token",
       data: {
         usernameEmail,
         password,
       },
     });
-    console.log(response.data);
-    if (response.data !== "credenciales invalidas") {
-      dispatch(setToken({ token: response.data }));
+    if (response.data !== "Credenciales invalidas") {
+      dispatch(setToken(response.data.token));
+      dispatch(setUserData(response.data.userData));
       navigate("/home");
     } else {
       setError(String(response.data));

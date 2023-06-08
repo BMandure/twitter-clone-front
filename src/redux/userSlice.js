@@ -5,14 +5,17 @@ const userSlice = createSlice({
   initialState: {},
   reducers: {
     setToken(state, action) {
-      return { token: action.payload.token };
+      return { ...state, token: action.payload };
     },
     deleteToken(state, action) {
-      return { token: null };
+      return { token: null, userData: null };
+    },
+    setUserData(state, action) {
+      return { ...state, userData: action.payload };
     },
   },
 });
 
 const { actions, reducer } = userSlice;
-export const { setToken, deleteToken } = actions;
+export const { setToken, deleteToken, setUserData } = actions;
 export default reducer;
