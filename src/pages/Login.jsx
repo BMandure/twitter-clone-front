@@ -11,6 +11,7 @@ function Login() {
 
   const [usernameEmail, setUsernameEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState();
   const navigate = useNavigate();
 
   async function handleSubmit(event) {
@@ -24,8 +25,12 @@ function Login() {
       },
     });
     console.log(response.data);
-    dispatch(setToken({ token: response.data }));
-    navigate("/home");
+    if (response.data !== "credenciales invalidas") {
+      dispatch(setToken({ token: response.data }));
+      navigate("/home");
+    } else {
+      setError(String(response.data));
+    }
   }
 
   return (
@@ -69,6 +74,11 @@ function Login() {
                     <%=messages.error%>
                   </p>
                   <%}%> */}
+                  {error && (
+                    <p className="border text-center p-1 rounded bg-danger bg-opacity-25 text-danger">
+                      {error}
+                    </p>
+                  )}
                   <button type="submit" className="btn-lb sign-up">
                     Sign In
                   </button>
