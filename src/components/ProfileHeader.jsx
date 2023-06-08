@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FollowButton from "./FollowButton";
 
 function ProfileHeader() {
   return (
@@ -32,9 +33,8 @@ function ProfileHeader() {
           className="col-5 d-flex d-flex flex-column align-items-end justify-content-between"
           id="follows-box"
         >
-          <button type="submit" className="btn-lb me-2">
-            Follow
-          </button>
+          <FollowButton idToFollow={1} /> //ejemplo, en el 1 sustituyo por la
+          info del llamado
           <p className="profile-followers mx-3" id="follows-counter">
             <Link
               to="/profile/bandido/following"
