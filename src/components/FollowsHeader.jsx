@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function FollowsHeader({ inFollowing }) {
+  const user = useSelector((state) => state.user.userData);
   return (
     <section className="container border-bottom">
       <div className="row pt-5">
@@ -9,7 +11,7 @@ function FollowsHeader({ inFollowing }) {
             to="/profile/bandido"
             className="fs-3 text-decoration-none text-black d-block"
           >
-            <i class="bi bi-arrow-left"></i>
+            <i className="bi bi-arrow-left"></i>
           </Link>
         </div>
         <div className="col-11">
@@ -19,7 +21,7 @@ function FollowsHeader({ inFollowing }) {
           </div>
           <div className="d-flex justify-content-around mt-4">
             <Link
-              to="/profile/bandido/followers"
+              to={`/profile/${user.username}/followers`}
               className={`fs-5  fw-semibold  pb-2 ${
                 inFollowing
                   ? "button-not-underlined"
@@ -29,7 +31,7 @@ function FollowsHeader({ inFollowing }) {
               Followers
             </Link>
             <Link
-              to="/profile/bandido/following"
+              to={`/profile/${user.username}/following`}
               className={`fs-5  fw-semibold  pb-2 ${
                 inFollowing
                   ? "button-border-underlined"

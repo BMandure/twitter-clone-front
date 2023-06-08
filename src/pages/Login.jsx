@@ -69,11 +69,6 @@ function Login() {
                     onChange={(event) => setPassword(event.target.value)}
                     placeholder="Password"
                   />
-                  {/* <%if (messages.error){%>
-                  <p className="border text-center p-1 rounded bg-danger bg-opacity-25 text-danger">
-                    <%=messages.error%>
-                  </p>
-                  <%}%> */}
                   {error && (
                     <p className="border text-center p-1 rounded bg-danger bg-opacity-25 text-danger">
                       {error}

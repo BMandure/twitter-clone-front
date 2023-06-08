@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function ProfileHeader() {
+  const user = useSelector((state) => state.user.userData);
   return (
     <>
       {" "}
@@ -24,8 +26,10 @@ function ProfileHeader() {
             data-bs-target="#exampleModal"
           />
 
-          <h1 className="m-0">Juan Perez</h1>
-          <small className="profile-grey-user">@juancitoperez</small>
+          <h1 className="m-0">
+            {user.firstname} {user.lastname}
+          </h1>
+          <small className="profile-grey-user">@{user.username}</small>
         </div>
 
         <div
@@ -37,16 +41,16 @@ function ProfileHeader() {
           </button>
           <p className="profile-followers mx-3" id="follows-counter">
             <Link
-              to="/profile/bandido/following"
+              to={`/profile/${user.username}/following`}
               style={{ color: "black", textDecoration: "none" }}
             >
-              <strong>100000</strong> Following
+              <strong>{user.following.length}</strong> Following
             </Link>
             <Link
-              to="/profile/bandido/followers"
+              to={`/profile/${user.username}/followers`}
               style={{ color: "black", textDecoration: "none" }}
             >
-              <strong>1</strong> Followers
+              <strong>{user.followers.length}</strong> Followers
             </Link>
           </p>
         </div>

@@ -7,11 +7,12 @@ import profileIcon from "../assets/profile.svg";
 import writeIcon from "../assets/write.svg";
 import logoutIcon from "../assets/logout.svg";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteToken } from "../redux/userSlice";
 
 function Sidebar() {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.userData);
   return (
     <>
       <aside className="position-fixed px-3 w-auto" style={{ height: "100vh" }}>
@@ -28,7 +29,7 @@ function Sidebar() {
                 <Link to="/home" className="my-2">
                   <img src={homeIcon} alt="" />
                 </Link>
-                <Link to="/profile/Juancito" className="my-2">
+                <Link to={`/profile/${user.username}`} className="my-2">
                   <img src={profileIcon} alt="" />
                 </Link>
               </div>
@@ -40,7 +41,7 @@ function Sidebar() {
                   Home
                 </Link>
                 <Link
-                  to="/profile/Juancito"
+                  to={`/profile/${user.username}`}
                   className="text-decoration-none text-black fw-semibold fs-6 my-2"
                 >
                   Profile

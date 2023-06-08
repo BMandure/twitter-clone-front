@@ -1,50 +1,56 @@
 .mt-n2 {
-    display: block;
-    margin-top: -0.65rem !important;
-  }
-
-  .mt-n3 {
-    display: block;
-    margin-top: -1.25rem !important;
-  }
-
-.button-border-underlined{
-    text-decoration: none;
-    color: black;
-    border-bottom: 0.4rem solid #23A4F2;
+  display: block;
+  margin-top: -0.65rem !important;
 }
 
-.button-not-underlined{
-    text-decoration: none;
-    color: black;
+.mt-n3 {
+  display: block;
+  margin-top: -1.25rem !important;
 }
 
-.title-followers{
-    font-weight: bold;
-    font-size: 1.1rem;
+.button-border-underlined {
+  text-decoration: none;
+  color: black;
+  border-bottom: 0.4rem solid #23a4f2;
 }
 
-.button-following{
-    height: fit-content;
-    padding-top: 0.25rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border-radius: 45px;
-    border-color: gray;
-    color: black;
+.button-not-underlined {
+  text-decoration: none;
+  color: black;
 }
 
-.button-follow{
-    height: fit-content;
-    padding-top: 0.25rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border: 0 solid transparent;
-    border-radius: 45px;
-    background-color: #50B7F5;
-    color: white;
-  }
+.title-followers {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
 
-  .followers-image{
-    border-radius: 50%;
-  }
+.button-following {
+  height: fit-content;
+  padding-top: 0.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 45px;
+  border-color: gray;
+  color: black;
+}
+
+.button-follow {
+  height: fit-content;
+  padding-top: 0.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border: 0 solid transparent;
+  border-radius: 45px;
+  background-color: #50b7f5;
+  color: white;
+}
+
+.followers-image {
+  border-radius: 50%;
+}
+.container-follow {
+  padding: 1rem;
+}
+.follow-card {
+  padding-bottom: 0.5rem;
+}
