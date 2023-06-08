@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import likeActive from "../assets/like-active.svg";
 import deleteIcon from "../assets/delete.svg";
+import { useSelector } from "react-redux";
 
 function Tweet({ tweet }) {
+  const userData = useSelector((state) => state.user.userData);
   function formatDate(createdAt) {
     return format(new Date(createdAt), "MM/dd/yyyy - hh:mm aaa");
   }
@@ -21,7 +23,10 @@ function Tweet({ tweet }) {
         />
       </div>
       <div style={{ width: "85%" }}>
-        <Link to="/profile/bandido" className="text-decoration-none text-black">
+        <Link
+          to={`/profile/${tweet.author.username}`}
+          className="text-decoration-none text-black"
+        >
           <p className="fw-bold d-inline">
             {tweet.author.firstname} {tweet.author.lastname}
           </p>
@@ -35,9 +40,11 @@ function Tweet({ tweet }) {
             <img src={likeActive} alt="" />
             {tweet.likes.length}
           </span>
-          <span>
-            <img src={deleteIcon} alt="" />
-          </span>
+          {userData.username === tweet.author.username && (
+            <span>
+              <img src={deleteIcon} alt="" />
+            </span>
+          )}
         </div>
       </div>
     </div>
