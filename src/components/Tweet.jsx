@@ -1,14 +1,39 @@
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import likeActive from "../assets/like-active.svg";
+import like from "../assets/like.svg";
 import deleteIcon from "../assets/delete.svg";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 function Tweet({ tweet }) {
   const userData = useSelector((state) => state.user.userData);
+  const token = useSelector((state) => state.user.token);
+
   function formatDate(createdAt) {
     return format(new Date(createdAt), "MM/dd/yyyy - hh:mm aaa");
   }
+
+  function likebtn() {
+    if (tweet.likes.includes(userData.id)) {
+      return likeActive;
+    } else {
+      return like;
+    }
+  }
+
+  const handleLike = async (event) => {
+    event.preventDefault();
+
+    const response = await axios({
+      method: "PATCH",
+      url: `http://localhost:3000/users/like/${tweet._id}`,
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+  };
+
   return (
     <div className="d-flex flex-row justify-content-between p-3 border-top">
       <div
@@ -37,7 +62,11 @@ function Tweet({ tweet }) {
         <p>{tweet.text}</p>
         <div className="d-flex w-100 justify-content-between">
           <span>
-            <img src={likeActive} alt="" />
+            <img
+              src={likebtn()}
+              alt=""
+              onClick={(event) => handleLike(event)}
+            />
             {tweet.likes.length}
           </span>
           {userData.username === tweet.author.username && (
