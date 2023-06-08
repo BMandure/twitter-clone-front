@@ -6,7 +6,7 @@ import deleteIcon from "../assets/delete.svg";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-function Tweet({ tweet, setRender }) {
+function Tweet({ tweet, author, setRender }) {
   const userData = useSelector((state) => state.user.userData);
   const token = useSelector((state) => state.user.token);
 
@@ -43,7 +43,7 @@ function Tweet({ tweet, setRender }) {
         style={{ height: "50px", width: "50px" }}
       >
         <img
-          src={tweet.author.avatar}
+          src={author.avatar}
           alt="fotoperfil"
           className="img-fluid"
           style={{ width: "65px", height: "65px", objectFit: "cover" }}
@@ -51,14 +51,14 @@ function Tweet({ tweet, setRender }) {
       </div>
       <div style={{ width: "85%" }}>
         <Link
-          to={`/profile/${tweet.author.username}`}
+          to={`/profile/${author.username}`}
           className="text-decoration-none text-black"
         >
           <p className="fw-bold d-inline">
-            {tweet.author.firstname} {tweet.author.lastname}
+            {author.firstname} {author.lastname}
           </p>
           <p className="text-secondary d-inline">
-            @{tweet.author.username} • {formatDate(tweet.createdAt)}
+            @{author.username} • {formatDate(tweet.createdAt)}
           </p>
         </Link>
         <p>{tweet.text}</p>
@@ -71,7 +71,7 @@ function Tweet({ tweet, setRender }) {
             />
             {tweet.likes.length}
           </span>
-          {userData.username === tweet.author.username && (
+          {userData.username === author.username && (
             <span>
               <img src={deleteIcon} alt="" />
             </span>

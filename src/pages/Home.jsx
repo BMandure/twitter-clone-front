@@ -30,7 +30,14 @@ function Home() {
     <>
       <WriteATweet setRender={setRender} />
       {tweets.map((tweet) => {
-        return <Tweet key={tweet._id} tweet={tweet} setRender={setRender} />;
+        return (
+          <Tweet
+            key={tweet._id}
+            tweet={tweet}
+            author={tweet.author}
+            setRender={setRender}
+          />
+        );
       })}
     </>
   );
