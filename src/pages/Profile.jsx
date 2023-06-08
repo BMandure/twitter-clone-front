@@ -9,14 +9,6 @@ import Tweet from "../components/Tweet";
 import ProfileHeader from "../components/ProfileHeader";
 
 function Profile() {
-<<<<<<< HEAD
-  return (
-    <>
-      <ProfileHeader />
-      {/*repetir.map(() => (
-        <Tweet />
-      ))*/}
-=======
   const token = useSelector((state) => state.user.token);
   const params = useParams();
   const [userData, setUserData] = useState(null);
@@ -52,7 +44,6 @@ function Profile() {
             />
           );
         })}
->>>>>>> 5e9d20c200969213e17b395ee9b65955a2c8331f
     </>
   );
 }
