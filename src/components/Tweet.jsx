@@ -6,7 +6,7 @@ import deleteIcon from "../assets/delete.svg";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-function Tweet({ tweet }) {
+function Tweet({ tweet, setRender }) {
   const userData = useSelector((state) => state.user.userData);
   const token = useSelector((state) => state.user.token);
 
@@ -32,6 +32,8 @@ function Tweet({ tweet }) {
         Authorization: "Bearer " + token,
       },
     });
+
+    return setRender((state) => state + 1);
   };
 
   return (
