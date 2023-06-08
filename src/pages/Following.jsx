@@ -11,6 +11,7 @@ function Followings() {
   const [following, setFollowing] = useState([]);
   const user = useSelector((state) => state.user.userData);
   const token = useSelector((state) => state.user.token);
+  const [render, setRender] = useState(0);
 
   useEffect(() => {
     async function getFollowing() {
@@ -25,13 +26,16 @@ function Followings() {
       setFollowing(response.data);
     }
     getFollowing();
-  }, []);
+  }, [render]);
 
   return (
     <>
       <FollowsHeader inFollowing={true} />
       <section className="container-follow">
-        {following && following.map((user) => <FollowsCard follower={user} />)}
+        {following &&
+          following.map((user) => (
+            <FollowsCard follower={user} setRender={setRender} />
+          ))}
       </section>
     </>
   );

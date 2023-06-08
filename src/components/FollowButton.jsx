@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-function FollowButton({ idToFollow }) {
+function FollowButton({ idToFollow, setRender }) {
   const username = useParams(); //username lo uso en la ruta
   const token = useSelector((state) => state.user.token);
 
@@ -18,7 +18,7 @@ function FollowButton({ idToFollow }) {
         userId: idToFollow,
       },
     });
-    console.log(response.data);
+    return setRender((state) => state + 1);
   }
 
   async function handleUnFollow(event) {
@@ -33,7 +33,7 @@ function FollowButton({ idToFollow }) {
         userId: idToFollow,
       },
     });
-    console.log(response.data);
+    return setRender((state) => state + 1);
   }
 
   return (
@@ -46,12 +46,7 @@ function FollowButton({ idToFollow }) {
       </form>
 
       <form onSubmit={handleUnFollow}>
-        <button
-          className="btn-lb me-2"
-          onClick={() => {
-            setUserId(userData.id);
-          }}
-        >
+        <button className="btn-lb me-2" type="submit">
           Unfollow
         </button>
       </form>

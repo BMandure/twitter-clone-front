@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import avatar from "../assets/generic-avatar.svg";
+import FollowButton from "./FollowButton";
 
-function FollowsCard({ follower }) {
+function FollowsCard({ follower, setRender }) {
   return (
     <div className="row mt-1 follow-card">
       <div className="col-2 d-flex align-items-center">
@@ -19,7 +20,7 @@ function FollowsCard({ follower }) {
           </Link>
           <small className="mt-n3">@{follower.username}</small>
         </div>
-        <FollowButton idToFollow={follower.id} />
+        <FollowButton idToFollow={follower.id} setRender={setRender} />
       </div>
     </div>
   );

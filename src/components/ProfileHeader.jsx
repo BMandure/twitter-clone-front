@@ -38,9 +38,7 @@ function ProfileHeader({ userData }) {
             className="col-5 d-flex d-flex flex-column align-items-end justify-content-between"
             id="follows-box"
           >
-            <button type="submit" className="btn-lb me-2">
-              Follow
-            </button>
+            <FollowButton idToFollow={userData.id} />
             <p className="profile-followers mx-3" id="follows-counter">
               <Link
                 to={`/profile/${userData.username}/following`}
