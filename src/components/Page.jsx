@@ -17,13 +17,13 @@ function Middle() {
     <>
       <Container>
         <Row>
-          <Col xs={1} xl={2}>
+          <Col xs={2} lg={2}>
             <Sidebar />
           </Col>
-          <Col xs={11} xl={6} className="center-page border-start border-end">
+          <Col xs={10} lg={6} className="center-page border-start border-end">
             <Outlet />
           </Col>
-          <Col xs={0} xl={4}>
+          <Col xs={0} lg={4}>
             <Trendings />
           </Col>
         </Row>

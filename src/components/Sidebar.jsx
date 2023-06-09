@@ -28,28 +28,28 @@ function Sidebar() {
             <Link to="/home" className="sidebar-link">
               <div className="d-flex gap-2">
                 <img src={homeIcon} alt="" className="icon-link" />
-                Home
+                <p className="profile-and-home my-0">Home</p>
               </div>
             </Link>
             <Link to={`/profile/${user.username}`} className="sidebar-link">
               <div className="d-flex gap-2">
                 <img src={profileIcon} alt="" className="icon-link" />
-                Profile
+                <p className="profile-and-home my-0">Profile</p>
               </div>
             </Link>
           </div>
-          <div className="gap-2 my-4">
+          <div>
             <Link
               to="/home"
-              className="btn btn-lb rounded-pill py-2 w-100 btn-tweet"
+              className="profile-and-home btn btn-lb rounded-pill py-2 w-100 btn-tweet text-center"
             >
-              Tweet
+              <p className="my-0 w-100">Tweet</p>
             </Link>
             <Link
               to="/home"
-              className="btn btn-lb rounded-circle p-2 btn-tweet-md"
+              className="btn p-2 btn-tweet-md  rounded-circle btn-lb icon-write"
             >
-              <img src={writeIcon} alt="" />
+              <img src={writeIcon} className="image-write" alt="write image" />
             </Link>
           </div>
         </div>
@@ -57,8 +57,8 @@ function Sidebar() {
           <span className="btn btn-danger rounded-pill py-2 w-100 btn-tweet">
             Logout
           </span>
-          <span className="btn btn-danger rounded-circle p-2 btn-tweet-md">
-            <img src={logoutIcon} alt="" />
+          <span className="btn p-2 btn-tweet-md rounded-circle btn-danger icon-logout">
+            <img src={logoutIcon} alt="" className="image-logout" />
           </span>
         </div>
       </div>
