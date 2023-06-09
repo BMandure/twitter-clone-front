@@ -34,7 +34,11 @@ function WriteATweet({ setRender }) {
       <h1 className="mb-3 fs-5 text-start px-0">Home</h1>
       <div className="col-1 mx-0 px-0">
         <img
-          src={userData.avatar}
+          src={
+            userData.avatar.includes("http")
+              ? userData.avatar
+              : "http://localhost:3000/img/" + userData.avatar
+          }
           alt="img perfil"
           className="writeATweet-avatar"
         />

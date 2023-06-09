@@ -42,7 +42,14 @@ function Profile() {
 
       {tweets.length > 0 &&
         tweets.map((tweet) => {
-          return <Tweet key={tweet._id} tweet={tweet} author={userData} />;
+          return (
+            <Tweet
+              key={tweet._id}
+              tweet={tweet}
+              author={userData}
+              setRender={setRender}
+            />
+          );
         })}
     </>
   );
