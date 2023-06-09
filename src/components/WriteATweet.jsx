@@ -57,10 +57,7 @@ function WriteATweet({ setRender }) {
         ></textarea>
       </div>
       <div className="d-flex w-100 my-2 justify-content-end px-0">
-        <button
-          type="submit"
-          className="col-2 btn btn-lb rounded-pill justify-content-end"
-        >
+        <button type="submit" className="btn-lb">
           Tweet
         </button>
       </div>
