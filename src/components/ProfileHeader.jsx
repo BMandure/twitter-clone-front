@@ -18,7 +18,11 @@ function ProfileHeader({ userData, setRender, render }) {
         <Row className="mt-3 mb-3">
           <Col xs={7} id="profile-content">
             <img
-              src={userData.avatar}
+              src={
+                userData.avatar.includes("http")
+                  ? userData.avatar
+                  : "http://localhost:3000/img/" + userData.avatar
+              }
               alt="profile-image"
               className="profile-image"
               data-bs-toggle="modal"
