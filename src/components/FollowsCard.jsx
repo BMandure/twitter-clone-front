@@ -24,7 +24,7 @@ function FollowsCard({ follower, setRender }) {
           </Link>
         </div>
         <FollowButton
-          idToFollow={follower.id}
+          idToFollow={follower._id}
           setRender={setRender}
           followers={follower.followers}
         />

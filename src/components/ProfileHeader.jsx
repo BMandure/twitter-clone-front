@@ -40,7 +40,6 @@ function ProfileHeader({ userData, setRender, render }) {
           <Col xs={5} id="follows-box">
             <FollowButton
               setRender={setRender}
-              render={render}
               idToFollow={userData.id}
               followers={userData.followers}
             />
