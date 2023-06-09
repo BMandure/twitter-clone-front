@@ -13,6 +13,7 @@ function Followers() {
   const user = useSelector((state) => state.user.userData);
   const token = useSelector((state) => state.user.token);
   const [followers, setFollowers] = useState([]);
+  const [data, setData] = useState(null);
   const [render, setRender] = useState(0);
 
   useEffect(() => {
@@ -24,14 +25,15 @@ function Followers() {
           Authorization: "Bearer " + token,
         },
       });
-      setFollowers(response.data);
+      setFollowers(response.data.followers);
+      setData(response.data);
     }
     getFollowers();
   }, [render]);
 
   return (
     <>
-      <FollowsHeader inFollowing={false} />
+      {data && <FollowsHeader inFollowing={false} userData={data} />}
       <section className="container-follow">
         {followers &&
           followers.map((follower) => (

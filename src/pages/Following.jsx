@@ -11,9 +11,10 @@ import { useParams } from "react-router-dom";
 function Followings() {
   const params = useParams();
 
-  const [following, setFollowing] = useState([]);
   const user = useSelector((state) => state.user.userData);
   const token = useSelector((state) => state.user.token);
+  const [following, setFollowing] = useState([]);
+  const [data, setData] = useState(null);
   const [render, setRender] = useState(0);
 
   useEffect(() => {
@@ -25,14 +26,15 @@ function Followings() {
           Authorization: "Bearer " + token,
         },
       });
-      setFollowing(response.data);
+      setFollowing(response.data.following);
+      setData(response.data);
     }
     getFollowing();
   }, [render]);
 
   return (
     <>
-      <FollowsHeader inFollowing={true} />
+      {data && <FollowsHeader inFollowing={true} userData={data} />}
       <section className="container-follow">
         {following &&
           following.map((user) => (
