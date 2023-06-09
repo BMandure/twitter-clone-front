@@ -2,16 +2,32 @@ import { Link } from "react-router-dom";
 import "./Follow.css";
 import FollowButton from "./FollowButton";
 import { Col, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 function FollowsCard({ follower, setRender }) {
+  const user = useSelector((state) => state.user);
+  console.log(user);
   return (
     <Row className="follow-card">
       <Col xs={12} className="follow-card-container">
-        <img
-          src={follower.avatar}
-          className="follow-card-avatar-img"
-          alt={`profile image of ${follower.username}`}
-        />
+        {follower._id !== user.userData.id ? (
+          <img
+            src={follower.avatar}
+            className="follow-card-avatar-img"
+            alt={`profile image of ${follower.username}`}
+          />
+        ) : (
+          <img
+            src={
+              user.userData.avatar.includes("http")
+                ? user.userData.avatar
+                : "http://localhost:3000/img/" + user.userData.avatar
+            }
+            className="follow-card-avatar-img"
+            alt={`profile image of ${user.userData.username}`}
+          />
+        )}
+
         <div className="follow-username">
           <p className="title-followers">
             {`${follower.firstname} ${follower.lastname}`}{" "}

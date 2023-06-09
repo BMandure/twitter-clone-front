@@ -32,7 +32,7 @@ function WriteATweet({ setRender }) {
   return (
     <form className="row my-3 mx-4" onSubmit={textHandler}>
       <h1 className="mb-3 fs-5 text-start px-0">Home</h1>
-      <div className="col-1 mx-0 px-0">
+      <div className="col-2 wAT-container">
         <img
           src={
             userData.avatar.includes("http")
@@ -43,7 +43,7 @@ function WriteATweet({ setRender }) {
           className="writeATweet-avatar"
         />
       </div>
-      <div className="col-11 d-flex align-items-center disable-r-padding">
+      <div className="col-10 d-flex align-items-center disable-r-padding mx-auto">
         <textarea
           className="form-control border-0"
           id="textTweet"
