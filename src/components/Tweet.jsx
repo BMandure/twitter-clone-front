@@ -24,11 +24,21 @@ function Tweet({ tweet, author, setRender }) {
   }
 
   const handleLike = async (event) => {
-    event.preventDefault();
-
     const response = await axios({
       method: "PATCH",
       url: `http://localhost:3000/users/like/${tweet._id}`,
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+
+    return setRender((state) => state + 1);
+  };
+
+  const handleDelete = async (event) => {
+    const response = axios({
+      method: "DELETE",
+      url: `http://localhost:3000/users/delete/${tweet._id}`,
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -64,7 +74,10 @@ function Tweet({ tweet, author, setRender }) {
             {tweet.likes.length}
           </span>
           {userData.username === author.username && (
-            <span className="delete-btn">
+            <span
+              className="delete-btn"
+              onClick={(event) => handleDelete(event)}
+            >
               <img src={deleteIcon} alt="delete icon" />
             </span>
           )}
