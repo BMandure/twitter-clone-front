@@ -26,6 +26,7 @@ function WriteATweet({ setRender }) {
     if (response === "text cannot exceed 140 characters") {
       return setErr("El texto no puede exceder los 140 caracteres");
     }
+    setText("");
     return setRender((state) => state + 1);
   }
   return (
