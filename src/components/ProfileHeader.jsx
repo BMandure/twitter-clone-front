@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import FollowButton from "./FollowButton";
 import { Col, Row } from "react-bootstrap";
 import "./Profile.css";
 
 function ProfileHeader({ userData, setRender, render }) {
+  const params = useParams();
+
   return (
     userData && (
       <>
@@ -40,7 +42,7 @@ function ProfileHeader({ userData, setRender, render }) {
             />
             <div className="profile-followers mx-3" id="follows-counter">
               <Link
-                to={`/profile/${userData.username}/followers`}
+                to={`/profile/${params.username}/followers`}
                 className="profile-follow-link"
               >
                 <strong className="fw-bolder">
@@ -49,7 +51,7 @@ function ProfileHeader({ userData, setRender, render }) {
                 Followers
               </Link>
               <Link
-                to={`/profile/${userData.username}/following`}
+                to={`/profile/${params.username}/following`}
                 className="profile-follow-link"
               >
                 <strong className="fw-bolder">
