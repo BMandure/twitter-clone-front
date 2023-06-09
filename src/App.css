@@ -11,13 +11,24 @@ body {
   min-height: 100vh;
 }
 
-.btn-lb {
+.btn-lb,
+.btn-unfollow-white {
   border: 0 solid transparent;
   border-radius: 45px;
-  background-color: var(--light-blue-1);
   padding: 0.5rem 1rem 0.5rem 1rem;
   color: white;
   transition: 0.1s ease-in;
+  font-weight: bold;
+}
+
+.btn-unfollow-white {
+  background-color: white;
+  color: #000000;
+  border: 1px solid lightgrey;
+}
+
+.btn-lb {
+  background-color: var(--light-blue-1);
 }
 
 .btn-lb:hover {

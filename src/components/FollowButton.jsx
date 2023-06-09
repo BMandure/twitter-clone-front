@@ -45,12 +45,12 @@ function FollowButton({ idToFollow, setRender, followers }) {
       {loggedId !== idToFollow &&
         (followers.includes(loggedId) ? (
           <form className="btn-follow-component" onSubmit={handleUnFollow}>
-            <Button className="btn-lb btn-follow" type="submit">
+            <Button className=" btn-unfollow-white btn-follow" type="submit">
               Unfollow
             </Button>
           </form>
         ) : (
-          <form onSubmit={handleFollow}>
+          <form onSubmit={handleFollow} className="btn-follow-component">
             <Button className="btn-lb btn-follow" type="submit">
               Follow
             </Button>
