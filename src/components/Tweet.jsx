@@ -67,7 +67,7 @@ function Tweet({ tweet, author, setRender }) {
           {" "}
           • {formatDate(tweet.createdAt)}
         </p>
-        <p>{tweet.text}</p>
+        <p className="mb-1">{tweet.text}</p>
         <div className="d-flex w-100 justify-content-between">
           <span className="like-btn" onClick={(event) => handleLike(event)}>
             <img src={likebtn()} alt="like button" />

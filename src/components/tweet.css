@@ -9,7 +9,7 @@
 .tweet-container {
   display: flex;
   justify-content: space-between;
-  padding: 1.5rem 2rem 1.5rem 2rem;
+  padding: 10px 2rem 10px 2rem;
 }
 .avatar {
   border-radius: 50%;
