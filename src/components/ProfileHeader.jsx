@@ -18,7 +18,7 @@ function ProfileHeader({ userData, setRender, render }) {
 
         <Row className="mt-3 mb-3">
           <Col xs={7} id="profile-content">
-            <ModalProfile userData={userData} />
+            <ModalProfile userData={userData} setRender={setRender} />
 
             <h1 className="m-0">
               {userData.firstname} {userData.lastname}

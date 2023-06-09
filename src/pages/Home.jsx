@@ -25,6 +25,7 @@ function Home() {
       });
       setTweets(response.data);
     }
+
     getTweets();
   }, [render]);
   return (

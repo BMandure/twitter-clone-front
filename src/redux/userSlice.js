@@ -13,9 +13,13 @@ const userSlice = createSlice({
     setUserData(state, action) {
       return { ...state, userData: action.payload };
     },
+    uploadAvatar(state, action) {
+      console.log(action.payload);
+      state.userData.avatar = action.payload;
+    },
   },
 });
 
 const { actions, reducer } = userSlice;
-export const { setToken, deleteToken, setUserData } = actions;
+export const { setToken, deleteToken, setUserData, uploadAvatar } = actions;
 export default reducer;

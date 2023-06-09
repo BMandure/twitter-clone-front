@@ -11,7 +11,11 @@ function FollowsCard({ follower, setRender }) {
       <Col xs={12} className="follow-card-container">
         {follower._id !== user.userData.id ? (
           <img
-            src={follower.avatar}
+            src={
+              follower.avatar.includes("http")
+                ? follower.avatar
+                : "http://localhost:3000/img/" + follower.avatar
+            }
             className="follow-card-avatar-img"
             alt={`profile image of ${follower.username}`}
           />

@@ -1,34 +1,43 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useSelector } from "react-redux";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { uploadAvatar } from "../redux/userSlice";
 
-function ModalProfile({ userData }) {
+function ModalProfile({ userData, setRender }) {
+  const dispatch = useDispatch();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [show, setShow] = useState(false);
 
-  //   const token = (state) => state.user.id;
-  //   const [avatar, setAvatar] = useState();
+  const token = useSelector((state) => state.user.token);
+  const [avatar, setAvatar] = useState();
 
-  //   const handleSubmit = async (event) => {
-  //     event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  //     const formData = new FormData();
-  //     formData.append("avatar", avatar);
+    const formData = new FormData();
+    formData.append("avatar", avatar);
 
-  //     const response = await axios({
-  //       method: "PATCH",
-  //       url: "http://localhost:3000/users/",
-  //       data: formData,
-  //       headers: { "Content-Type": "multipart/form-data" },
-  //     });
-  //     if (response.data === "El usuario fue creado") {
-  //       navigate("/login");
-  //     } else {
-  //       setError(String(response.data));
-  //     }
-  //   };
+    const response = await axios({
+      method: "PATCH",
+      url: "http://localhost:3000/users/avatar",
+      data: formData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: "Bearer " + token,
+      },
+    });
+
+    if (response.data !== "success") {
+      handleClose();
+      return console.log(response.data);
+    }
+
+    handleClose();
+    setRender((prevState) => prevState + 1);
+    return dispatch(uploadAvatar(avatar.name));
+  };
 
   return (
     <>
@@ -47,11 +56,10 @@ function ModalProfile({ userData }) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Cambia tu foto</Modal.Title>
+          <Modal.Title>Change Photo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* <form onSubmit={handleSubmit}>
-            {" "}
+          <form onSubmit={handleSubmit}>
             <input
               className="form-control my-2 py-2"
               type="file"
@@ -59,17 +67,11 @@ function ModalProfile({ userData }) {
               name="avatar"
               onChange={(event) => setAvatar(event.target.files[0])}
             />
-          </form> */}
-          Aca va el input
+            <button type="submit" className="btn btn-lb">
+              Save Changes
+            </button>
+          </form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Confirmar cambios
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );
