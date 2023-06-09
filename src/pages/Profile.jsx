@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Loading from "../components/Loading";
 
 //Componentes y css
 import "./Profile.css";
@@ -32,7 +33,9 @@ function Profile() {
 
   return (
     <>
-      {userData && (
+      {!userData ? (
+        <Loading />
+      ) : (
         <ProfileHeader
           userData={userData}
           setRender={setRender}
@@ -40,7 +43,9 @@ function Profile() {
         />
       )}
 
-      {tweets.length > 0 &&
+      {!tweets.length > 0 ? (
+        <Loading />
+      ) : (
         tweets.map((tweet) => {
           return (
             <Tweet
@@ -50,7 +55,8 @@ function Profile() {
               setRender={setRender}
             />
           );
-        })}
+        })
+      )}
     </>
   );
 }

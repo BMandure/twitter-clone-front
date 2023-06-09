@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
+import Loading from "../components/Loading";
 
 //Componentes y css
 import "./Home.css";
@@ -28,17 +29,26 @@ function Home() {
   }, [render]);
   return (
     <>
-      <WriteATweet setRender={setRender} />
-      {tweets.map((tweet) => {
-        return (
-          <Tweet
-            key={tweet._id}
-            tweet={tweet}
-            author={tweet.author}
-            setRender={setRender}
-          />
-        );
-      })}
+      {tweets.length === 0 ? (
+        <Loading />
+      ) : (
+        <WriteATweet setRender={setRender} />
+      )}
+
+      {tweets.length === 0 ? (
+        <Loading />
+      ) : (
+        tweets.map((tweet) => {
+          return (
+            <Tweet
+              key={tweet._id}
+              tweet={tweet}
+              author={tweet.author}
+              setRender={setRender}
+            />
+          );
+        })
+      )}
     </>
   );
 }

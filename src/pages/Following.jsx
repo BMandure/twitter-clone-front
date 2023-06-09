@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Loading from "../components/Loading";
 
 function Followings() {
   const params = useParams();
@@ -34,12 +35,19 @@ function Followings() {
 
   return (
     <>
-      {data && <FollowsHeader inFollowing={true} userData={data} />}
+      {!data ? (
+        <Loading />
+      ) : (
+        <FollowsHeader inFollowing={true} userData={data} />
+      )}
       <section className="container-follow">
-        {following &&
+        {!following ? (
+          <Loading />
+        ) : (
           following.map((user) => (
-            <FollowsCard key={user.id} follower={user} setRender={setRender} />
-          ))}
+            <FollowsCard key={user._id} follower={user} setRender={setRender} />
+          ))
+        )}
       </section>
     </>
   );
