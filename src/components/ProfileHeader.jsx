@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import FollowButton from "./FollowButton";
+import { Col, Row } from "react-bootstrap";
+import "./Profile.css";
 
 function ProfileHeader({ userData }) {
-  console.log(userData.followers.length);
   return (
     userData && (
       <>
-        {" "}
         <div>
           <img
             src={"https://pbs.twimg.com/media/DeN6MsqW4AAUBDT.jpg"}
@@ -15,11 +15,8 @@ function ProfileHeader({ userData }) {
             className="img-fluid profile-object-fit"
           />
         </div>
-        <div className="row mt-3 mb-3">
-          <div
-            className="col-7 d-flex flex-column justify-content-around"
-            id="profile-content"
-          >
+        <Row className="mt-3 mb-3">
+          <Col xs={7} id="profile-content">
             <img
               src={userData.avatar}
               alt="profile-image"
@@ -32,29 +29,32 @@ function ProfileHeader({ userData }) {
               {userData.firstname} {userData.lastname}
             </h1>
             <small className="profile-grey-user">@{userData.username}</small>
-          </div>
+          </Col>
 
-          <div
-            className="col-5 d-flex d-flex flex-column align-items-end justify-content-between"
-            id="follows-box"
-          >
+          <Col xs={5} id="follows-box">
             <FollowButton idToFollow={userData.id} />
-            <p className="profile-followers mx-3" id="follows-counter">
+            <div className="profile-followers mx-3" id="follows-counter">
               <Link
                 to={`/profile/${userData.username}/following`}
-                style={{ color: "black", textDecoration: "none" }}
+                className="profile-follow-link"
               >
-                <strong>{userData.following.length}</strong> Following
+                <strong className="fw-bolder">
+                  {userData.following.length}
+                </strong>{" "}
+                Following
               </Link>
               <Link
                 to={`/profile/${userData.username}/followers`}
-                style={{ color: "black", textDecoration: "none" }}
+                className="profile-follow-link"
               >
-                <strong>{userData.followers.length}</strong> Followers
+                <strong className="fw-bolder">
+                  {userData.followers.length}
+                </strong>{" "}
+                Followers
               </Link>
-            </p>
-          </div>
-        </div>
+            </div>
+          </Col>
+        </Row>
       </>
     )
   );

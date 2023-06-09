@@ -5,6 +5,7 @@ import like from "../assets/like.svg";
 import deleteIcon from "../assets/delete.svg";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import "./tweet.css";
 
 function Tweet({ tweet, author, setRender }) {
   const userData = useSelector((state) => state.user.userData);
@@ -37,43 +38,34 @@ function Tweet({ tweet, author, setRender }) {
   };
 
   return (
-    <div className="d-flex flex-row justify-content-between p-3 border-top">
-      <div
-        className="rounded-circle overflow-hidden mx-auto"
-        style={{ height: "50px", width: "50px" }}
-      >
+    <div className="tweet-container border-top">
+      <div>
         <img
           src={author.avatar}
           alt="fotoperfil"
-          className="img-fluid"
-          style={{ width: "65px", height: "65px", objectFit: "cover" }}
+          className="img-fluid avatar"
         />
       </div>
       <div style={{ width: "85%" }}>
-        <Link
-          to={`/profile/${author.username}`}
-          className="text-decoration-none text-black"
-        >
-          <p className="fw-bold d-inline">
-            {author.firstname} {author.lastname}
-          </p>
-          <p className="text-secondary d-inline">
-            @{author.username} • {formatDate(tweet.createdAt)}
-          </p>
+        <p className="tweet-name">
+          {author.firstname} {author.lastname}
+        </p>{" "}
+        <Link to={`/profile/${author.username}`} className="tweet-username">
+          <small>@{author.username}</small>
         </Link>
+        <p className="text-secondary d-inline">
+          {" "}
+          • {formatDate(tweet.createdAt)}
+        </p>
         <p>{tweet.text}</p>
         <div className="d-flex w-100 justify-content-between">
-          <span>
-            <img
-              src={likebtn()}
-              alt=""
-              onClick={(event) => handleLike(event)}
-            />
+          <span className="like-btn" onClick={(event) => handleLike(event)}>
+            <img src={likebtn()} alt="like button" />
             {tweet.likes.length}
           </span>
           {userData.username === author.username && (
-            <span>
-              <img src={deleteIcon} alt="" />
+            <span className="delete-btn">
+              <img src={deleteIcon} alt="delete icon" />
             </span>
           )}
         </div>

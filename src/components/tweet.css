@@ -1,0 +1,29 @@
+.like-btn {
+  display: flex;
+  gap: 7px;
+}
+.like-btn:hover,
+.delete-btn:hover {
+  cursor: pointer;
+}
+.tweet-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+}
+.avatar {
+  border-radius: 50%;
+  width: 50px;
+  height: auto;
+}
+.tweet-username {
+  text-decoration: none;
+  color: black;
+}
+.tweet-username:hover {
+  text-decoration: underline;
+}
+.tweet-name {
+  display: inline;
+  font-weight: bold;
+}

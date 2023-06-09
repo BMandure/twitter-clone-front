@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
+import "./writeATweet.css";
 
 function WriteATweet({ setRender }) {
   const userData = useSelector((state) => state.user.userData);
@@ -31,14 +32,11 @@ function WriteATweet({ setRender }) {
     <form className="row my-3 mx-4" onSubmit={textHandler}>
       <h1 className="mb-3 fs-5 text-start px-0">Home</h1>
       <div className="col-1 mx-0 px-0">
-        <div className="rounded-circle overflow-hidden px-0">
-          <img
-            src={userData.avatar}
-            alt="img perfil"
-            className="img-fluid"
-            style={{ width: "50px", objectFit: "cover" }}
-          />
-        </div>
+        <img
+          src={userData.avatar}
+          alt="img perfil"
+          className="writeATweet-avatar"
+        />
       </div>
       <div className="col-11 d-flex align-items-center disable-r-padding">
         <textarea

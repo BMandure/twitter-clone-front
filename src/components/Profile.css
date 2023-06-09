@@ -1,0 +1,24 @@
+#profile-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+#follows-box {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: space-around;
+  padding-right: 2rem;
+}
+
+.profile-follow-link {
+  color: black;
+  text-decoration: none;
+}
+.profile-followers {
+  display: flex;
+  gap: 10px;
+}
+.profile-follow-link:hover {
+  color: var(--light-blue-1) !important;
+}

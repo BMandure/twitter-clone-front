@@ -2,6 +2,9 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
+//Bootstrap
+import Button from "react-bootstrap/Button";
+
 function FollowButton({ idToFollow, setRender }) {
   const username = useParams(); //username lo uso en la ruta
   const token = useSelector((state) => state.user.token);
@@ -39,16 +42,19 @@ function FollowButton({ idToFollow, setRender }) {
   return (
     <>
       {/* {abc ? abc : abc} */}
-      <form onSubmit={handleFollow}>
-        <button className="btn-lb me-2" type="submit">
-          Follow
-        </button>
-      </form>
 
-      <form onSubmit={handleUnFollow}>
-        <button className="btn-lb me-2" type="submit">
+      {
+        //VER CUAL RENDERIZAR
+        /*<form onSubmit={handleFollow}>
+          <Button className="btn-lb btn-follow" type="submit">
+            Follow
+          </Button>
+        </form>*/
+      }
+      <form className="btn-follow-component" onSubmit={handleUnFollow}>
+        <Button className="btn-lb btn-follow" type="submit">
           Unfollow
-        </button>
+        </Button>
       </form>
     </>
   );

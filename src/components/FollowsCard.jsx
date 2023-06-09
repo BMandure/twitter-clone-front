@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
-import avatar from "../assets/generic-avatar.svg";
+import "./Follow.css";
 import FollowButton from "./FollowButton";
+import { Col, Row } from "react-bootstrap";
 
 function FollowsCard({ follower, setRender }) {
   return (
-    <div className="row mt-1 follow-card">
-      <div className="col-2 d-flex align-items-center">
-        <img src={follower.avatar} className="w-75 followers-image" alt="..." />
-      </div>
-      <div className="col-10 d-flex justify-content-between  align-items-center pt-2 pb-2">
-        <div>
+    <Row className="follow-card">
+      <Col xs={12} className="follow-card-container">
+        <img
+          src={follower.avatar}
+          className="follow-card-avatar-img"
+          alt={`profile image of ${follower.username}`}
+        />
+        <div className="follow-username">
           <Link
             to={`/profile/${follower.username}`}
             className="text-decoration-none text-black"
@@ -21,8 +24,8 @@ function FollowsCard({ follower, setRender }) {
           <small className="mt-n3">@{follower.username}</small>
         </div>
         <FollowButton idToFollow={follower.id} setRender={setRender} />
-      </div>
-    </div>
+      </Col>
+    </Row>
   );
 }
 

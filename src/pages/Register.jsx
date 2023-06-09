@@ -32,7 +32,6 @@ function Register() {
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     });
-    console.log(response.data);
     if (response.data === "El usuario fue creado") {
       navigate("/login");
     } else {

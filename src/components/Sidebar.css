@@ -1,0 +1,32 @@
+.sidebar-aside {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
+.sidebar-icon-container {
+  display: flex;
+  margin: 1rem 0 1rem 0;
+  flex-direction: column;
+}
+
+.sidebar-link {
+  display: flex;
+  padding: 1rem 0 1rem 0;
+  text-decoration: none;
+  color: black;
+  font-weight: semibold;
+  font-size: 1.1rem;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar-link:hover {
+  color: var(--light-blue-1);
+}
+
+.icon-link {
+  width: 25px;
+  height: 25px;
+}

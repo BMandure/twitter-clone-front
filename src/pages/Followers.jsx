@@ -21,7 +21,6 @@ function Followers() {
           Authorization: "Bearer " + token,
         },
       });
-      console.log(response.data);
       setFollowers(response.data);
     }
     getFollowers();
@@ -32,7 +31,9 @@ function Followers() {
       <FollowsHeader inFollowing={false} />
       <section className="container-follow">
         {followers &&
-          followers.map((follower) => <FollowsCard follower={follower} />)}
+          followers.map((follower) => (
+            <FollowsCard key={follower.id} follower={follower} />
+          ))}
       </section>
     </>
   );

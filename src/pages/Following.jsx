@@ -22,7 +22,6 @@ function Followings() {
           Authorization: "Bearer " + token,
         },
       });
-      console.log(response.data);
       setFollowing(response.data);
     }
     getFollowing();
@@ -34,7 +33,7 @@ function Followings() {
       <section className="container-follow">
         {following &&
           following.map((user) => (
-            <FollowsCard follower={user} setRender={setRender} />
+            <FollowsCard key={user.id} follower={user} setRender={setRender} />
           ))}
       </section>
     </>
