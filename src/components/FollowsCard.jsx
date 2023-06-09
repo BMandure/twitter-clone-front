@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 function FollowsCard({ follower, setRender }) {
   const user = useSelector((state) => state.user);
-  console.log(user);
   return (
     <Row className="follow-card">
       <Col xs={12} className="follow-card-container">
