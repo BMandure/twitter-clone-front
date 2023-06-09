@@ -32,17 +32,16 @@ function Profile() {
 
   return (
     <>
-      {userData && <ProfileHeader userData={userData} />}
+      {userData && (
+        <ProfileHeader
+          userData={userData}
+          setRender={setRender}
+          render={render}
+        />
+      )}
       {tweets &&
         tweets.map((tweet) => {
-          return (
-            <Tweet
-              key={tweet._id}
-              tweet={tweet}
-              author={userData}
-              setRender={setRender}
-            />
-          );
+          return <Tweet key={tweet._id} tweet={tweet} author={userData} />;
         })}
     </>
   );

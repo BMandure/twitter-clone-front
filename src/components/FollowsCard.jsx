@@ -23,7 +23,11 @@ function FollowsCard({ follower, setRender }) {
           </Link>
           <small className="mt-n3">@{follower.username}</small>
         </div>
-        <FollowButton idToFollow={follower.id} setRender={setRender} />
+        <FollowButton
+          idToFollow={follower.id}
+          setRender={setRender}
+          followers={follower.followers}
+        />
       </Col>
     </Row>
   );

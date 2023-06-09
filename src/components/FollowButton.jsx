@@ -5,9 +5,10 @@ import axios from "axios";
 //Bootstrap
 import Button from "react-bootstrap/Button";
 
-function FollowButton({ idToFollow, setRender }) {
+function FollowButton({ idToFollow, setRender, followers, render }) {
   const username = useParams(); //username lo uso en la ruta
   const token = useSelector((state) => state.user.token);
+  const loggedId = useSelector((state) => state.user.userData.id);
 
   async function handleFollow(event) {
     event.preventDefault();
@@ -21,7 +22,7 @@ function FollowButton({ idToFollow, setRender }) {
         userId: idToFollow,
       },
     });
-    return setRender((state) => state + 1);
+    return setRender(render + 1);
   }
 
   async function handleUnFollow(event) {
@@ -36,26 +37,25 @@ function FollowButton({ idToFollow, setRender }) {
         userId: idToFollow,
       },
     });
-    return setRender((state) => state + 1);
+    return setRender((render) => render + 1);
   }
 
   return (
     <>
       {/* {abc ? abc : abc} */}
-
-      {
-        //VER CUAL RENDERIZAR
-        /*<form onSubmit={handleFollow}>
+      {followers.includes(loggedId) ? (
+        <form className="btn-follow-component" onSubmit={handleUnFollow}>
+          <Button className="btn-lb btn-follow" type="submit">
+            Unfollow
+          </Button>
+        </form>
+      ) : (
+        <form onSubmit={handleFollow}>
           <Button className="btn-lb btn-follow" type="submit">
             Follow
           </Button>
-        </form>*/
-      }
-      <form className="btn-follow-component" onSubmit={handleUnFollow}>
-        <Button className="btn-lb btn-follow" type="submit">
-          Unfollow
-        </Button>
-      </form>
+        </form>
+      )}
     </>
   );
 }

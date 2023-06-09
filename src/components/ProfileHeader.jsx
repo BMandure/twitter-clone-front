@@ -4,7 +4,7 @@ import FollowButton from "./FollowButton";
 import { Col, Row } from "react-bootstrap";
 import "./Profile.css";
 
-function ProfileHeader({ userData }) {
+function ProfileHeader({ userData, setRender, render }) {
   return (
     userData && (
       <>
@@ -32,17 +32,13 @@ function ProfileHeader({ userData }) {
           </Col>
 
           <Col xs={5} id="follows-box">
-            <FollowButton idToFollow={userData.id} />
+            <FollowButton
+              setRender={setRender}
+              render={render}
+              idToFollow={userData.id}
+              followers={userData.followers}
+            />
             <div className="profile-followers mx-3" id="follows-counter">
-              <Link
-                to={`/profile/${userData.username}/following`}
-                className="profile-follow-link"
-              >
-                <strong className="fw-bolder">
-                  {userData.following.length}
-                </strong>{" "}
-                Following
-              </Link>
               <Link
                 to={`/profile/${userData.username}/followers`}
                 className="profile-follow-link"
@@ -51,6 +47,15 @@ function ProfileHeader({ userData }) {
                   {userData.followers.length}
                 </strong>{" "}
                 Followers
+              </Link>
+              <Link
+                to={`/profile/${userData.username}/following`}
+                className="profile-follow-link"
+              >
+                <strong className="fw-bolder">
+                  {userData.following.length}
+                </strong>{" "}
+                Following
               </Link>
             </div>
           </Col>
