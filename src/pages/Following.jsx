@@ -6,8 +6,11 @@ import "./followers.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 function Followings() {
+  const params = useParams();
+
   const [following, setFollowing] = useState([]);
   const user = useSelector((state) => state.user.userData);
   const token = useSelector((state) => state.user.token);
@@ -17,7 +20,7 @@ function Followings() {
     async function getFollowing() {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:3000/users/${user.username}/following`,
+        url: `http://localhost:3000/users/${params.username}/following`,
         headers: {
           Authorization: "Bearer " + token,
         },
