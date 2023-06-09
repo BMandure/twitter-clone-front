@@ -35,3 +35,11 @@
   font-weight: bold;
   padding: 0.5rem;
 }
+
+.follow-username-link {
+  text-decoration: none;
+  color: black;
+}
+.follow-username-link:hover {
+  text-decoration: underline;
+}
