@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import FollowButton from "./FollowButton";
 import { Col, Row } from "react-bootstrap";
 import "./Profile.css";
+import ModalProfile from "./ProfileModal";
 
 function ProfileHeader({ userData, setRender, render }) {
   const params = useParams();
@@ -10,26 +10,15 @@ function ProfileHeader({ userData, setRender, render }) {
   return (
     userData && (
       <>
-        <div>
-          <img
-            src={"https://pbs.twimg.com/media/DeN6MsqW4AAUBDT.jpg"}
-            alt="portrait"
-            className="img-fluid profile-object-fit"
-          />
-        </div>
+        <img
+          src={"https://pbs.twimg.com/media/DeN6MsqW4AAUBDT.jpg"}
+          alt="portrait"
+          className="img-fluid profile-object-fit"
+        />
+
         <Row className="mt-3 mb-3">
           <Col xs={7} id="profile-content">
-            <img
-              src={
-                userData.avatar.includes("http")
-                  ? userData.avatar
-                  : "http://localhost:3000/img/" + userData.avatar
-              }
-              alt="profile-image"
-              className="profile-image"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            />
+            <ModalProfile userData={userData} />
 
             <h1 className="m-0">
               {userData.firstname} {userData.lastname}
