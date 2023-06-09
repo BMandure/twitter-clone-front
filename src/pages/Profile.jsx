@@ -39,7 +39,8 @@ function Profile() {
           render={render}
         />
       )}
-      {tweets &&
+
+      {tweets.length > 0 &&
         tweets.map((tweet) => {
           return <Tweet key={tweet._id} tweet={tweet} author={userData} />;
         })}

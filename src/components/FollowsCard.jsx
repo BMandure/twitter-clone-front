@@ -13,15 +13,15 @@ function FollowsCard({ follower, setRender }) {
           alt={`profile image of ${follower.username}`}
         />
         <div className="follow-username">
+          <p className="title-followers">
+            {`${follower.firstname} ${follower.lastname}`}{" "}
+          </p>
           <Link
             to={`/profile/${follower.username}`}
-            className="text-decoration-none text-black"
+            className="follow-username-link"
           >
-            <p className="title-followers">
-              {`${follower.firstname} ${follower.lastname}`}{" "}
-            </p>
+            <small className="mt-n3">@{follower.username}</small>
           </Link>
-          <small className="mt-n3">@{follower.username}</small>
         </div>
         <FollowButton
           idToFollow={follower.id}

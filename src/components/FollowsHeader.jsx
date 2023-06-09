@@ -15,8 +15,10 @@ function FollowsHeader({ inFollowing }) {
             <i className="bi bi-arrow-left"></i>
           </Link>
           <div>
-            <h3>Aldu Piedrabuena</h3>
-            <small className="mt-n2">@alduu</small>
+            <h3>
+              {user.firstname} {user.lastname}
+            </h3>
+            <small className="mt-n2">@{user.username}</small>
           </div>
         </div>
 
