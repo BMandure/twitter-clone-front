@@ -33,7 +33,7 @@ function Profile() {
   return (
     <>
       {userData && <ProfileHeader userData={userData} />}
-      {tweets &&
+      {tweets.length > 0 &&
         tweets.map((tweet) => {
           return (
             <Tweet
