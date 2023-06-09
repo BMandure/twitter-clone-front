@@ -31,7 +31,11 @@ function Sidebar() {
                 Home
               </div>
             </Link>
-            <Link to={`/profile/${user.username}`} className="sidebar-link">
+            <Link
+              replace
+              to={`/profile/${user.username}`}
+              className="sidebar-link"
+            >
               <div className="d-flex gap-2">
                 <img src={profileIcon} alt="" className="icon-link" />
                 Profile

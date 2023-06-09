@@ -28,7 +28,7 @@ function Profile() {
       setTweets(response.data.tweets);
     }
     getUserData();
-  }, [render]);
+  }, [render, params]);
 
   return (
     <>
