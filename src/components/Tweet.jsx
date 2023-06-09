@@ -51,7 +51,11 @@ function Tweet({ tweet, author, setRender }) {
     <div className="tweet-container border-top">
       <div>
         <img
-          src={author.avatar}
+          src={
+            author.avatar.includes("http")
+              ? author.avatar
+              : "http://localhost:3000/img/" + author.avatar
+          }
           alt="fotoperfil"
           className="img-fluid avatar"
         />
