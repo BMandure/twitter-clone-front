@@ -8,6 +8,7 @@ import Loading from "../components/Loading";
 import "./Home.css";
 import WriteATweet from "../components/WriteATweet";
 import Tweet from "../components/Tweet";
+import NotTweets from "../components/NotTweets";
 
 function Home() {
   const [tweets, setTweets] = useState([]);
@@ -30,14 +31,12 @@ function Home() {
   }, [render]);
   return (
     <>
-      {tweets.length === 0 ? (
-        <Loading />
-      ) : (
-        <WriteATweet setRender={setRender} />
-      )}
+      <WriteATweet setRender={setRender} />
 
-      {tweets.length === 0 ? (
+      {!tweets ? (
         <Loading />
+      ) : tweets.length === 0 ? (
+        <NotTweets />
       ) : (
         tweets.map((tweet) => {
           return (

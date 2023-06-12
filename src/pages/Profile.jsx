@@ -8,6 +8,7 @@ import Loading from "../components/Loading";
 import "./Profile.css";
 import Tweet from "../components/Tweet";
 import ProfileHeader from "../components/ProfileHeader";
+import NotTweets from "../components/NotTweets";
 
 function Profile() {
   const token = useSelector((state) => state.user.token);
@@ -43,8 +44,10 @@ function Profile() {
         />
       )}
 
-      {!tweets.length > 0 ? (
+      {!tweets ? (
         <Loading />
+      ) : tweets.length === 0 ? (
+        <NotTweets />
       ) : (
         tweets.map((tweet) => {
           return (
