@@ -11,7 +11,7 @@ import Tweet from "../components/Tweet";
 import NotTweets from "../components/NotTweets";
 
 function Home() {
-  const [tweets, setTweets] = useState([]);
+  const [tweets, setTweets] = useState(null);
   const token = useSelector((state) => state.user.token);
   const [render, setRender] = useState(0);
 
