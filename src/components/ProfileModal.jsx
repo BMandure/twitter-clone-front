@@ -5,9 +5,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { uploadAvatar } from "../redux/userSlice";
 
 function ModalProfile({ userData, setRender }) {
+  const idLoggedUser = useSelector((state) => state.user.userData.id);
   const dispatch = useDispatch();
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = () => {
+    if (userData.id === idLoggedUser) {
+      setShow(true);
+    }
+  };
   const [show, setShow] = useState(false);
 
   const token = useSelector((state) => state.user.token);
@@ -29,14 +34,14 @@ function ModalProfile({ userData, setRender }) {
       },
     });
 
-    if (response.data !== "success") {
+    if (response.data.code === "err") {
       handleClose();
-      return console.log(response.data);
+      return console.log(response.data.message);
     }
 
     handleClose();
     setRender((prevState) => prevState + 1);
-    return dispatch(uploadAvatar(avatar.name));
+    return dispatch(uploadAvatar(response.data));
   };
 
   return (

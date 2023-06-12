@@ -14,7 +14,6 @@ const userSlice = createSlice({
       return { ...state, userData: action.payload };
     },
     uploadAvatar(state, action) {
-      console.log(action.payload);
       state.userData.avatar = action.payload;
     },
   },
