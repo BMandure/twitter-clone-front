@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import "./tweet.css";
 
-function Tweet({ tweet, author, setRender }) {
+function Tweet({ tweet, author, setTweets, setRender }) {
   const userData = useSelector((state) => state.user.userData);
   const token = useSelector((state) => state.user.token);
 
@@ -36,7 +36,9 @@ function Tweet({ tweet, author, setRender }) {
   };
 
   const handleDelete = async (event) => {
-    const response = axios({
+    setTweets((prevState) => prevState.filter((t) => t._id !== tweet._id));
+
+    const response = await axios({
       method: "DELETE",
       url: `http://localhost:3000/users/delete/${tweet._id}`,
       headers: {

@@ -45,6 +45,7 @@ function Home() {
               tweet={tweet}
               author={tweet.author}
               setRender={setRender}
+              setTweets={setTweets}
             />
           );
         })

@@ -55,6 +55,7 @@ function Profile() {
               key={tweet._id}
               tweet={tweet}
               author={userData}
+              setTweets={setTweets}
               setRender={setRender}
             />
           );

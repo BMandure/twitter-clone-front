@@ -14,7 +14,8 @@
 .avatar {
   border-radius: 50%;
   width: 50px;
-  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
 .tweet-username {
   text-decoration: none;

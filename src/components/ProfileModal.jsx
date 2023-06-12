@@ -68,6 +68,7 @@ function ModalProfile({ userData, setRender }) {
             <input
               className="form-control my-2 py-2"
               type="file"
+              accept="image/*"
               id="avatar"
               name="avatar"
               onChange={(event) => setAvatar(event.target.files[0])}
