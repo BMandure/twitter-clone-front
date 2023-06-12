@@ -21,7 +21,7 @@ import "./App.css";
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, []); //Cuando cambia el path
 
   const token = useSelector((state) => state.user.token);
 
