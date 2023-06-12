@@ -27,6 +27,7 @@ function WriteATweet({ setRender }) {
       return setErr("El texto no puede exceder los 140 caracteres");
     }
     setText("");
+    setErr(null);
     return setRender((state) => state + 1);
   }
   return (
@@ -56,7 +57,17 @@ function WriteATweet({ setRender }) {
           }}
         ></textarea>
       </div>
-      <div className="d-flex w-100 my-2 justify-content-end px-0">
+      <div className="d-flex w-100 my-2 justify-content-end align-items-center px-0 gap-3">
+        {text.length > 0 && (
+          <span
+            className={
+              text.length > 140 &&
+              "text-danger bg-danger bg-opacity-25 rounded-pill px-3"
+            }
+          >
+            {140 - text.length}
+          </span>
+        )}
         <button type="submit" className="btn-lb">
           Tweet
         </button>

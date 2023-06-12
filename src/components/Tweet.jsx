@@ -3,9 +3,12 @@ import { format } from "date-fns";
 import likeActive from "../assets/like-active.svg";
 import like from "../assets/like.svg";
 import deleteIcon from "../assets/delete.svg";
+import retweet from "../assets/9041918_retweet_icon.svg";
+import comment from "../assets/8664929_comment_chat_message_icon.svg";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import "./tweet.css";
+import { Tooltip } from "antd";
 
 function Tweet({ tweet, author, setTweets, setRender }) {
   const userData = useSelector((state) => state.user.userData);
@@ -73,18 +76,30 @@ function Tweet({ tweet, author, setTweets, setRender }) {
           {" "}
           • {formatDate(tweet.createdAt)}
         </p>
-        <p className="mb-1">{tweet.text}</p>
+        <p className="mb-1" style={{ overflowWrap: "break-word" }}>
+          {tweet.text}
+        </p>
         <div className="d-flex w-100 justify-content-between">
-          <span className="like-btn" onClick={(event) => handleLike(event)}>
-            <img src={likebtn()} alt="like button" />
-            {tweet.likes.length}
+          <span className="d-flex gap-4">
+            <img src={comment} alt="comment icon" />
+            <img src={retweet} alt="retweet icon" />
+            <span className="like-btn" onClick={(event) => handleLike(event)}>
+              <img src={likebtn()} alt="like button" />
+              {tweet.likes.length}
+            </span>
           </span>
           {userData.username === author.username && (
             <span
               className="delete-btn"
               onClick={(event) => handleDelete(event)}
             >
-              <img src={deleteIcon} alt="delete icon" />
+              <Tooltip
+                placement="left"
+                title={"Delete tweet"}
+                color={"#dc3545"}
+              >
+                <img src={deleteIcon} alt="delete icon" />
+              </Tooltip>
             </span>
           )}
         </div>
