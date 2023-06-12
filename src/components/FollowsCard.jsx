@@ -14,7 +14,7 @@ function FollowsCard({ follower, setRender }) {
             src={
               follower.avatar.includes("http")
                 ? follower.avatar
-                : "http://localhost:3000/img/" + follower.avatar
+                : `${import.meta.env.VITE_APP_BACK}/img/` + follower.avatar
             }
             className="follow-card-avatar-img"
             alt={`profile image of ${follower.username}`}
@@ -24,7 +24,7 @@ function FollowsCard({ follower, setRender }) {
             src={
               user.userData.avatar.includes("http")
                 ? user.userData.avatar
-                : "http://localhost:3000/img/" + user.userData.avatar
+                : `${import.meta.env.VITE_APP_BACK}/img/` + user.userData.avatar
             }
             className="follow-card-avatar-img"
             alt={`profile image of ${user.userData.username}`}

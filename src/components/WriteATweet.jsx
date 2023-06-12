@@ -15,7 +15,7 @@ function WriteATweet({ setRender }) {
     }
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/users/tweet",
+      url: `${import.meta.env.VITE_APP_BACK}/users/tweet`,
       data: {
         textTweet: text,
       },
@@ -37,7 +37,7 @@ function WriteATweet({ setRender }) {
           src={
             userData.avatar.includes("http")
               ? userData.avatar
-              : "http://localhost:3000/img/" + userData.avatar
+              : `${import.meta.env.VITE_APP_BACK}/img/` + userData.avatar
           }
           alt="img perfil"
           className="writeATweet-avatar"

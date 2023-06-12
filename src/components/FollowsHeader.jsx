@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { Col, Row } from "react-bootstrap";
 
 function FollowsHeader({ inFollowing, userData }) {
   const params = useParams();

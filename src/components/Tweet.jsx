@@ -26,7 +26,7 @@ function Tweet({ tweet, author, setTweets, setRender }) {
   const handleLike = async (event) => {
     const response = await axios({
       method: "PATCH",
-      url: `http://localhost:3000/users/like/${tweet._id}`,
+      url: `${import.meta.env.VITE_APP_BACK}/users/like/${tweet._id}`,
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -40,7 +40,7 @@ function Tweet({ tweet, author, setTweets, setRender }) {
 
     const response = await axios({
       method: "DELETE",
-      url: `http://localhost:3000/users/delete/${tweet._id}`,
+      url: `${import.meta.env.VITE_APP_BACK}/users/delete/${tweet._id}`,
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -56,7 +56,7 @@ function Tweet({ tweet, author, setTweets, setRender }) {
           src={
             author.avatar.includes("http")
               ? author.avatar
-              : "http://localhost:3000/img/" + author.avatar
+              : `${import.meta.env.VITE_APP_BACK}/img/` + author.avatar
           }
           alt="fotoperfil"
           className="img-fluid avatar"

@@ -18,7 +18,7 @@ function Login() {
     event.preventDefault();
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/token",
+      url: `${import.meta.env.VITE_APP_BACK}/token`,
       data: {
         usernameEmail,
         password,

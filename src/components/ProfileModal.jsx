@@ -26,7 +26,7 @@ function ModalProfile({ userData, setRender }) {
 
     const response = await axios({
       method: "PATCH",
-      url: "http://localhost:3000/users/avatar",
+      url: `${import.meta.env.VITE_APP_BACK}/users/avatar`,
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",
@@ -50,7 +50,7 @@ function ModalProfile({ userData, setRender }) {
         src={
           userData.avatar.includes("http")
             ? userData.avatar
-            : "http://localhost:3000/img/" + userData.avatar
+            : `${import.meta.env.VITE_APP_BACK}/img/` + userData.avatar
         }
         alt="profile-image"
         className="profile-image"

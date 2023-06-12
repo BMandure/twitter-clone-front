@@ -4,7 +4,7 @@ import { Col, Row } from "react-bootstrap";
 import "./Profile.css";
 import ModalProfile from "./ProfileModal";
 
-function ProfileHeader({ userData, setRender, render }) {
+function ProfileHeader({ userData, setRender }) {
   const params = useParams();
 
   return (
