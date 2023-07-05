@@ -59,7 +59,7 @@ function Tweet({ tweet, author, setTweets, setRender }) {
           src={
             author.avatar.includes("http")
               ? author.avatar
-              : `${import.meta.env.VITE_APP_BACK}/img/` + author.avatar
+              : `${import.meta.env.VITE_SUPABASE_API_IMG}${author.avatar}`
           }
           alt="fotoperfil"
           className="img-fluid avatar"

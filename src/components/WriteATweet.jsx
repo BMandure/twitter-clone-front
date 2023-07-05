@@ -30,6 +30,7 @@ function WriteATweet({ setRender }) {
     setErr(null);
     return setRender((state) => state + 1);
   }
+  console.log(import.meta.env.VITE_SUPABASE_API_IMG);
   return (
     <form className="row my-3 mx-4" onSubmit={textHandler}>
       <h1 className="mb-3 fs-5 text-start px-0">Home</h1>
@@ -38,7 +39,7 @@ function WriteATweet({ setRender }) {
           src={
             userData.avatar.includes("http")
               ? userData.avatar
-              : `${import.meta.env.VITE_APP_BACK}/img/` + userData.avatar
+              : `${import.meta.env.VITE_SUPABASE_API_IMG}${userData.avatar}`
           }
           alt="img perfil"
           className="writeATweet-avatar"

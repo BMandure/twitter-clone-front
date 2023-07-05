@@ -50,7 +50,7 @@ function ModalProfile({ userData, setRender }) {
         src={
           userData.avatar.includes("http")
             ? userData.avatar
-            : `${import.meta.env.VITE_APP_BACK}/img/` + userData.avatar
+            : `${import.meta.env.VITE_SUPABASE_API_IMG}${userData.avatar}`
         }
         alt="profile-image"
         className="profile-image"
