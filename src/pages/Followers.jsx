@@ -21,7 +21,7 @@ function Followers() {
     async function getFollowers() {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_APP_BACK}/users/${
+        url: `${import.meta.env.VITE_APP_BACK}users/${
           params.username
         }/followers`,
         headers: {

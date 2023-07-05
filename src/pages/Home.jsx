@@ -19,7 +19,7 @@ function Home() {
     async function getTweets() {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_APP_BACK}/users/tweets`,
+        url: `${import.meta.env.VITE_APP_BACK}users/tweets`,
         headers: {
           Authorization: "Bearer " + token,
         },
