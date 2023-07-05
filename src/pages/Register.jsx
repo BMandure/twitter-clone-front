@@ -28,7 +28,7 @@ function Register() {
 
     const response = await axios({
       method: "POST",
-      url: `${import.meta.env.VITE_APP_BACK}register`,
+      url: `${import.meta.env.VITE_APP_BACK}/register`,
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     });
