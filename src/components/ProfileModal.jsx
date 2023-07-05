@@ -26,7 +26,7 @@ function ModalProfile({ userData, setRender }) {
 
     const response = await axios({
       method: "PATCH",
-      url: `${import.meta.env.VITE_APP_BACK}/users/avatar`,
+      url: `${import.meta.env.VITE_APP_BACK}users/avatar`,
       data: formData,
       headers: {
         "Content-Type": "multipart/form-data",

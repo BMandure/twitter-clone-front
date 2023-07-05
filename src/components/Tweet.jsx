@@ -29,7 +29,7 @@ function Tweet({ tweet, author, setTweets, setRender }) {
   const handleLike = async (event) => {
     const response = await axios({
       method: "PATCH",
-      url: `${import.meta.env.VITE_APP_BACK}/users/like/${tweet._id}`,
+      url: `${import.meta.env.VITE_APP_BACK}users/like/${tweet._id}`,
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -43,7 +43,7 @@ function Tweet({ tweet, author, setTweets, setRender }) {
 
     const response = await axios({
       method: "DELETE",
-      url: `${import.meta.env.VITE_APP_BACK}/users/delete/${tweet._id}`,
+      url: `${import.meta.env.VITE_APP_BACK}users/delete/${tweet._id}`,
       headers: {
         Authorization: "Bearer " + token,
       },

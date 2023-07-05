@@ -21,7 +21,7 @@ function Profile() {
     async function getUserData() {
       const response = await axios({
         method: "GET",
-        url: `${import.meta.env.VITE_APP_BACK}/users/${params.username}`,
+        url: `${import.meta.env.VITE_APP_BACK}users/${params.username}`,
         headers: {
           Authorization: "Bearer " + token,
         },

@@ -14,7 +14,7 @@ function FollowButton({ idToFollow, setRender, followers }) {
     event.preventDefault();
     const response = await axios({
       method: "PATCH",
-      url: `${import.meta.env.VITE_APP_BACK}/users/${username}/follow`,
+      url: `${import.meta.env.VITE_APP_BACK}users/${username}/follow`,
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -29,7 +29,7 @@ function FollowButton({ idToFollow, setRender, followers }) {
     event.preventDefault();
     const response = await axios({
       method: "PATCH",
-      url: `${import.meta.env.VITE_APP_BACK}/users/${username}/unfollow`,
+      url: `${import.meta.env.VITE_APP_BACK}users/${username}/unfollow`,
       headers: {
         Authorization: "Bearer " + token,
       },
