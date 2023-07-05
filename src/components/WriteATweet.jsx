@@ -15,7 +15,7 @@ function WriteATweet({ setRender }) {
     }
     const response = await axios({
       method: "POST",
-      url: `${import.meta.env.VITE_APP_BACK}/users/tweet`,
+      url: `${import.meta.env.VITE_APP_BACK}users/tweet`,
       data: {
         textTweet: text,
       },
