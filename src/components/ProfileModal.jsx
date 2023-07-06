@@ -16,7 +16,7 @@ function ModalProfile({ userData, setRender }) {
   const [show, setShow] = useState(false);
 
   const token = useSelector((state) => state.user.token);
-  const [avatar, setAvatar] = useState();
+  const [avatar, setAvatar] = useState(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,7 +41,8 @@ function ModalProfile({ userData, setRender }) {
 
     handleClose();
     setRender((prevState) => prevState + 1);
-    return dispatch(uploadAvatar(response.data));
+    dispatch(uploadAvatar(response.data));
+    return setAvatar(null);
   };
 
   return (
