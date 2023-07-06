@@ -32,11 +32,11 @@ function Register() {
       data: formData,
       headers: { "Content-Type": "multipart/form-data" },
     });
-    if (response.data === "El usuario fue creado") {
-      navigate("/login");
-    } else {
-      setError(String(response.data));
+    if (response.data.err === "err") {
+      return setError(response.data.message);
     }
+    setError(null);
+    return navigate("/login");
   };
 
   return (
